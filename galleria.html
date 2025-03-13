@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Social di Giochi di Quartiere</title>
+    <title>Galleria</title>
+
     <style>
         /* Stili Generali */
         body {
@@ -12,21 +13,24 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
-            color: #333; /* Colore di testo predefinito */
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Barra di Navigazione */
+        /* Barra di Navigazione - Stile Originale Mantenuto */
         nav {
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             text-align: center;
-            /*position: sticky;*/ /* Rimosso per far scorrere la nav */
             top: 0;
             z-index: 10;
             border-image: linear-gradient(to right, green, red, white, yellow, blue) 1;
             border-width: 6px;
             border-style: solid;
+            position: sticky; /* Make it stick to the top */
         }
 
         nav a {
@@ -34,33 +38,66 @@
             text-decoration: none;
             margin: 0 20px;
             font-size: 18px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease-in-out; /* Added transform */
+            display: inline-block;
         }
 
         nav a:hover {
             color: #555;
+            transform: scale(1.1); /* Added slight scale on hover */
         }
 
         /* Contenuto Principale */
         .content {
             padding: 20px;
             text-align: center;
+            flex: 1;
         }
 
         .content img {
-            max-width: 300px; /* Larghezza massima del logo */
-            height: auto;       /* Mantiene le proporzioni */
+            max-width: 300px;
+            height: auto;
             margin-bottom: 20px;
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 2px 5px white; /* Subtle shadow */
         }
 
         .content h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 1px 1px 2px white; /* Added a subtle text shadow */
         }
 
         .content p {
             font-size: 1.1rem;
             line-height: 1.6;
+            color: black; /* Slightly darker color for better readability */
+        }
+
+        /* Stile per le "Cartelle" */
+        .folder {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Slightly more rounded corners */
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 150px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease; /* Added more transitions */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .folder:hover {
+            background-color: #eee;
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* More noticeable shadow on hover */
         }
 
         /* Social Media Icons */
@@ -72,23 +109,24 @@
         .social a {
             display: inline-block;
             margin: 0 20px;
-            transition: transform 0.2s ease-in-out; /* Aggiunge transizione */
+            transition: transform 0.2s ease-in-out;
         }
 
         .social a:hover {
-            transform: scale(1.1); /* Leggero ingrandimento al passaggio del mouse */
+            transform: scale(1.2); /* Increased scale */
         }
 
         .social img {
-            width: 160px;  /* Aumenta la dimensione delle icone */
-            height: 80px;
-            border-radius: 10px; /* Bordo arrotondato per le icone */
-            opacity: 0.8; /* Leggera trasparenza di base */
-            transition: opacity 0.2s ease-in-out; /* Transizione per l'opacità */
+            width: 100px; /* Reduced size */
+            height: 50px; /* Reduced size */
+            border-radius: 10px;
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out;
+            object-fit: cover; /* Ensure images fit */
         }
 
         .social img:hover {
-            opacity: 1; /* Rende l'icona completamente opaca al passaggio del mouse */
+            opacity: 1;
         }
 
         /* Footer */
@@ -99,7 +137,6 @@
             padding: 20px;
             font-size: 0.9rem;
             font-weight: bold;
-            margin-top: 40px;
             line-height: 1.6;
         }
 
@@ -136,20 +173,25 @@
             }
 
             .social img {
-                width: 160px;
-                height: 80px;
+                width: 100px; /* Adjusted for smaller screens */
+                height: 50px; /* Adjusted for smaller screens */
             }
 
             footer {
                 padding: 15px;
                 font-size: 0.8rem;
             }
+
+            nav a {
+                font-size: 16px; /* Smaller font size on mobile */
+                margin: 0 10px;
+            }
         }
     </style>
+
 </head>
 
 <body>
-
     <nav>
         <a href="https://www.giochidiquartiere.it">Home</a>
         <a href="https://www.giochidiquartiere.it/social">Social</a>
@@ -157,23 +199,20 @@
     </nav>
 
     <div class="content">
-        <img src="https://www.giochidiquartiere.it/wp-content/uploads/2025/02/SCIALLA-1-1.png" alt="Logo di Giochi di Quartiere">
-        <h1>Benvenuto nella nostra pagina Social</h1>
-        <p>Qui troverai tutti i nostri aggiornamenti e le nostre novità. Seguici sui social per rimanere sempre
-            aggiornato!</p>
+        <h1>Galleria</h1>
+        <p>Benvenuti nella nostra galleria fotografica. Qui potete trovare le foto dei nostri eventi e delle nostre
+            attività.</p>
+
+            <a href="https://drive.google.com/drive/folders/1aqk1KEXyu3y4wG11oh0xU6UfJN6XSWtw?usp=sharing" class="folder"
+            target="_blank" rel="noopener noreferrer">VEJONE FOTO 2024</a>
+
+        <a href="https://drive.google.com/drive/folders/1uEK6IS5gkROSUonXyqIujRK-6uRpXoEy?usp=sharing" class="folder"
+            target="_blank" rel="noopener noreferrer">FOTO 2022</a>
+        <!-- Aggiungi altre cartelle qui -->
+
     </div>
 
-    <div class="social">
-        <a href="https://www.facebook.com/giochidiquartiere" target="_blank" rel="noopener noreferrer">
-            <img src="https://www.giochidiquartiere.it/wp-content/uploads/2025/03/logo-facebook.png" alt="Seguici su Facebook">
-        </a>
-
-        <a href="https://www.instagram.com/giochidiquartiere" target="_blank" rel="noopener noreferrer">
-            <img src="https://www.giochidiquartiere.it/wp-content/uploads/2025/03/Logo-Instagram.png" alt="Seguici su Instagram">
-        </a>
-    </div>
-
-    <footer id="footer">
+    <footer>
         <p>© 2025 Giochi di Quartiere</p>
         <p>Email: <a href="mailto:giochidiquartiere@gmail.com">giochidiquartiere@gmail.com</a></p>
         <p>PEC: ...</p>
